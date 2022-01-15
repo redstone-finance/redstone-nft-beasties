@@ -8,6 +8,7 @@ const deployedContracts = require("../data/deployed-contracts.json");
 // Set up Arweave client
 const arweave = Arweave.init({
   host: 'arweave.net',
+  // host: 'testnet.redstone.tools',
   port: 443,
   protocol: 'https',
 });

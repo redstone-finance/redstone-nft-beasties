@@ -6,6 +6,11 @@ const { LoggerFactory, SmartWeaveNodeFactory } = require("redstone-smartweave");
 
 let arweave, arlocal, smartweave, contract, wallet, walletAddress;
 
+async function addFunds(arweave, wallet) {
+  const walletAddress = await arweave.wallets.getAddress(wallet);
+  await arweave.api.get(`/mint/${walletAddress}/1000000000000000`);
+}
+
 describe('Testing the oracle contract', () => {
 
   beforeAll(async () => {
@@ -28,6 +33,8 @@ describe('Testing the oracle contract', () => {
 
     const contractSrc = fs.readFileSync(path.join(__dirname, '../../contracts/oracle/contract.js'), 'utf8');
     const initialState = fs.readFileSync(path.join(__dirname, '../../contracts/oracle/initial-state.json'), 'utf8');
+
+    await addFunds(arweave, wallet);
 
     // Deploying contract using the RedStone SmartWeave SDK
     const contractTxId = await smartweave.createContract.deploy({

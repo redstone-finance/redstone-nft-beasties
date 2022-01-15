@@ -48,9 +48,9 @@ export async function handle(state, action) {
     // Query for getting all tokens with details
     case "getAllTokens": {
       // Getting global temperature value from the oracle contract
-      const currentTemperature = (await SmartWeave.contracts.viewContractState(
-        state.oracleContractAddress,
-        { function: "getCurrentValue" })).value;
+      const oracleValues = await SmartWeave.contracts.readContractState(
+        state.oracleContractAddress);
+      const currentTemperature = oracleValues.values[0].value;
 
       const allTokens = [];
       for (const [tokenId, tokenDetails] of Object.entries(state.tokens)) {
