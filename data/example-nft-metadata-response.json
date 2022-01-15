@@ -1,0 +1,72 @@
+[
+  {
+    "tokenId": "1",
+    "tokenDetails": {
+      "name": "Panda",
+      "deathTemperature": 0,
+      "kidsTemperature": 20,
+      "owner": "33F0QHcb22W7LwWR1iRC8Az1ntZG09XQ03YWuw2ABqA",
+      "imageArweaveUrl": "https://hv4gxzchk24cqfezebn3ujjz6oy2kbtztv5vghn6kpbkjc3vg4rq.arweave.net/Ff5aMVqwvcCWcnj8BfxejGLngcucECY6zTJagXC8sgQ",
+      "imageArweaveUrlWithKids": "https://hv4gxzchk24cqfezebn3ujjz6oy2kbtztv5vghn6kpbkjc3vg4rq.arweave.net/7Cx9Dy8w25Q2OrkxrzRnW_I3QmgrrdpBhyEe9R89t5s"
+    },
+    "isAlive": true,
+    "hasKids": true,
+    "imageUrl": "https://hv4gxzchk24cqfezebn3ujjz6oy2kbtztv5vghn6kpbkjc3vg4rq.arweave.net/7Cx9Dy8w25Q2OrkxrzRnW_I3QmgrrdpBhyEe9R89t5s"
+  },
+  {
+    "tokenId": "2",
+    "tokenDetails": {
+      "name": "Lion",
+      "deathTemperature": 10,
+      "kidsTemperature": 30,
+      "owner": "33F0QHcb22W7LwWR1iRC8Az1ntZG09XQ03YWuw2ABqA",
+      "imageArweaveUrl": "https://hv4gxzchk24cqfezebn3ujjz6oy2kbtztv5vghn6kpbkjc3vg4rq.arweave.net/VGix07oYzrXUnfYWoBsYb1MnmuDKt-o81BitxPWZj7w",
+      "imageArweaveUrlWithKids": "https://hv4gxzchk24cqfezebn3ujjz6oy2kbtztv5vghn6kpbkjc3vg4rq.arweave.net/shAdifSqLn3IbSLnWo7TglpN6Lx-ExVcVpjLeEJbzOY"
+    },
+    "isAlive": true,
+    "hasKids": false,
+    "imageUrl": "https://hv4gxzchk24cqfezebn3ujjz6oy2kbtztv5vghn6kpbkjc3vg4rq.arweave.net/VGix07oYzrXUnfYWoBsYb1MnmuDKt-o81BitxPWZj7w"
+  },
+  {
+    "tokenId": "3",
+    "tokenDetails": {
+      "name": "Elephant",
+      "deathTemperature": 5,
+      "kidsTemperature": 30,
+      "owner": "33F0QHcb22W7LwWR1iRC8Az1ntZG09XQ03YWuw2ABqA",
+      "imageArweaveUrl": "https://hv4gxzchk24cqfezebn3ujjz6oy2kbtztv5vghn6kpbkjc3vg4rq.arweave.net/vQeUki8E06mVI70d3ir27b6mrUE1Cq_CHYK964afL7M",
+      "imageArweaveUrlWithKids": "https://hv4gxzchk24cqfezebn3ujjz6oy2kbtztv5vghn6kpbkjc3vg4rq.arweave.net/YXy1ZIS9HjYX-wbmKtrD32E_CviJV1xyA-2D2BBDijs"
+    },
+    "isAlive": true,
+    "hasKids": false,
+    "imageUrl": "https://hv4gxzchk24cqfezebn3ujjz6oy2kbtztv5vghn6kpbkjc3vg4rq.arweave.net/vQeUki8E06mVI70d3ir27b6mrUE1Cq_CHYK964afL7M"
+  },
+  {
+    "tokenId": "4",
+    "tokenDetails": {
+      "name": "Fox",
+      "deathTemperature": 0,
+      "kidsTemperature": 20,
+      "owner": "33F0QHcb22W7LwWR1iRC8Az1ntZG09XQ03YWuw2ABqA",
+      "imageArweaveUrl": "https://hv4gxzchk24cqfezebn3ujjz6oy2kbtztv5vghn6kpbkjc3vg4rq.arweave.net/hIvsMZuXvx4wNekvGAGUcU6mpHgcge9JmzfbwhOkdQw",
+      "imageArweaveUrlWithKids": "https://hv4gxzchk24cqfezebn3ujjz6oy2kbtztv5vghn6kpbkjc3vg4rq.arweave.net/lYueWF1Hqhued5npzoEAgkmNYiGh6D17V71L7Rt5YNU"
+    },
+    "isAlive": true,
+    "hasKids": true,
+    "imageUrl": "https://hv4gxzchk24cqfezebn3ujjz6oy2kbtztv5vghn6kpbkjc3vg4rq.arweave.net/lYueWF1Hqhued5npzoEAgkmNYiGh6D17V71L7Rt5YNU"
+  },
+  {
+    "tokenId": "5",
+    "tokenDetails": {
+      "name": "Zebra",
+      "deathTemperature": 0,
+      "kidsTemperature": 20,
+      "owner": "33F0QHcb22W7LwWR1iRC8Az1ntZG09XQ03YWuw2ABqA",
+      "imageArweaveUrl": "https://hv4gxzchk24cqfezebn3ujjz6oy2kbtztv5vghn6kpbkjc3vg4rq.arweave.net/sFu-OQWZFtw873HVhzMOh7FvWvIliI8di7zYZzQbIqw",
+      "imageArweaveUrlWithKids": "https://hv4gxzchk24cqfezebn3ujjz6oy2kbtztv5vghn6kpbkjc3vg4rq.arweave.net/u6SDYRxV589xCnKe0IYFeHgo3cgyPBbj6_AreCC5iwA"
+    },
+    "isAlive": true,
+    "hasKids": true,
+    "imageUrl": "https://hv4gxzchk24cqfezebn3ujjz6oy2kbtztv5vghn6kpbkjc3vg4rq.arweave.net/u6SDYRxV589xCnKe0IYFeHgo3cgyPBbj6_AreCC5iwA"
+  }
+]

@@ -1,3 +1,6 @@
 {
-  "name": "Beastie NFT"
+  "name": "Beastie NFT",
+  "tokens": {},
+  "oracleContractAddress": "x_ylfKSDlwynd5cEmAAsIwCNO4c3iY2mrKujb9xjnbk",
+  "ghostImageArweaveUrl": "https://arweave.net/ujOHUSSVY4BPrOA3LLFbh-rvWYm4gKEbMkhPg7Ky4sU"
 }
