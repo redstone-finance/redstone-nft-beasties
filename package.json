@@ -2,6 +2,9 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
+  "resolutions": {
+    "mini-css-extract-plugin": "2.4.5"
+  },
   "dependencies": {
     "@fontsource/dangrek": "^4.5.2",
     "@testing-library/jest-dom": "^5.14.1",
