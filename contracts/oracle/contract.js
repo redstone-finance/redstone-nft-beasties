@@ -34,7 +34,7 @@ export async function handle(state, action) {
 
     default: {
       throw new ContractError(
-        `Unsupported contract function: ${functionName}`);
+        `Unsupported contract function: ${action.input.function}`);
     }
   }
 }

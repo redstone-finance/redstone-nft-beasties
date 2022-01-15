@@ -50,7 +50,7 @@ export async function handle(state, action) {
       // Getting global temperature value from the oracle contract
       const currentTemperature = (await SmartWeave.contracts.viewContractState(
         state.oracleContractAddress,
-        { function: 'getCurrentValue' })).value;
+        { function: "getCurrentValue" })).value;
 
       const allTokens = [];
       for (const [tokenId, tokenDetails] of Object.entries(state.tokens)) {
@@ -73,13 +73,13 @@ export async function handle(state, action) {
         allTokens.push(token);
       }
 
-      return allTokens;
+      return { result: allTokens };
     }
 
 
     default: {
       throw new ContractError(
-        `Unsupported contract function: ${functionName}`);
+        `Unsupported contract function: ${action.input.function}`);
     }
 
   }

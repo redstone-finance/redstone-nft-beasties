@@ -9,14 +9,14 @@ const { getContract } = require("./utils");
   console.log(JSON.stringify(state, null, 2));
 
   // Write interaction
-  // console.log("Sending 'saveNewValue' interaction...");
-  // await contract.writeInteraction({
-  //   function: "saveNewValue",
-  //   data: {
-  //     value: 10,
-  //   },
-  // });
-  // console.log("Interaction has been sent");
+  console.log("Sending 'saveNewValue' interaction...");
+  await contract.writeInteraction({
+    function: "saveNewValue",
+    data: {
+      value: 10,
+    },
+  });
+  console.log("Interaction has been sent");
 
   // Read state after interaction
   const stateAfterInteraction = await contract.readState();
@@ -31,14 +31,14 @@ const { getContract } = require("./utils");
   console.log(`Latest changes: ${JSON.stringify(latestChanges2)}`);
 
   // Write interaction
-  // console.log("Sending 'saveNewValue' interaction...");
-  // await contract.writeInteraction({
-  //   function: "saveNewValue",
-  //   data: {
-  //     value: 20,
-  //   },
-  // });
-  // console.log("Interaction has been sent");
+  console.log("Sending 'saveNewValue' interaction...");
+  await contract.writeInteraction({
+    function: "saveNewValue",
+    data: {
+      value: 20,
+    },
+  });
+  console.log("Interaction has been sent");
 
   // Using generatedAssets contract function
   const { result: latestChanges } = await contract.viewState({
