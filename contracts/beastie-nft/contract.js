@@ -1,13 +1,15 @@
 export async function handle(state, action) {
+
   switch (action.input.function) {
 
+    // Name query
     case "name": {
       return { result: state.name };
     }
 
-
+    // A method to mint NFTs
     case "mintNFT": {
-      const { tokenId, name, deathTemperature, kidsTemperature, owner, imageArweaveUrl } 
+      const { tokenId, name, deathTemperature, kidsTemperature, owner, imageArweaveUrl, imageArweaveUrlWithKids } 
         = action.input.data;
 
       if (state.tokens[tokenId]) {
@@ -26,7 +28,7 @@ export async function handle(state, action) {
       return { state };
     }
 
-
+    // Standard NFT transfer method
     case "transfer": {
       const { tokenId, recipient } = action.input.data;
 
@@ -43,7 +45,7 @@ export async function handle(state, action) {
       return { state };
     }
 
-
+    // Query for getting all tokens with details
     case "getAllTokens": {
       // Getting global temperature value from the oracle contract
       const currentTemperature = (await SmartWeave.contracts.viewContractState(
@@ -58,15 +60,27 @@ export async function handle(state, action) {
           isAlive: currentTemperature > tokenDetails.deathTemperature,
           hasKids: currentTemperature > tokenDetails.kidsTemperature,
         };
+
+        // Calculating corresponding image url
+        if (!token.isAlive) {
+          token.imageUrl = state.ghostImageArweaveUrl;
+        } else if (token.hasKids) {
+          token.imageUrl = tokenDetails.imageArweaveUrlWithKids;
+        } else {
+          token.imageUrl = tokenDetails.imageArweaveUrl;
+        }
+
         allTokens.push(token);
       }
 
       return allTokens;
     }
 
+
     default: {
       throw new ContractError(
         `Unsupported contract function: ${functionName}`);
     }
+
   }
 }
