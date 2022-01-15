@@ -1,0 +1,132 @@
+@font-face {
+  font-family: Pixie;
+  src: url(pixie.ttf);
+}
+
+.heading {
+  font-family: Pixie !important;
+  text-align: center;
+  margin: -40px 0 30px 0 !important;
+  font-size: 90px !important;
+}
+
+.main-box {
+  border: 15px solid;
+  border-image: url("data:image/svg+xml;charset=utf-8,%3Csvg width='100' height='100' viewBox='0 0 100 100' fill='none' xmlns='http://www.w3.org/2000/svg'%3E %3ClinearGradient id='g' x1='0%25' y1='0%25' x2='0%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%23cffffe' /%3E%3Cstop offset='25%25' stop-color='%23f9f7d9' /%3E%3Cstop offset='50%25' stop-color='%23fce2ce' /%3E%3Cstop offset='100%25' stop-color='%23ffc1f3' /%3E%3C/linearGradient%3E %3Cpath d='M1.5 1.5 l97 0l0 97l-97 0 l0 -97' stroke-linecap='square' stroke='url(%23g)' stroke-width='3'/%3E %3C/svg%3E")
+    1;
+}
+
+.grow {
+  width: 100%;
+  float: left;
+  height: 50px;
+  z-index: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+.grow:hover {
+  overflow: visible;
+  z-index: 100;
+}
+
+.grow:hover .item {
+  z-index: 100;
+}
+
+.item {
+  position: absolute;
+  width: 100%;
+  border-bottom-left-radius: 10%;
+  border-bottom-right-radius: 10%;
+}
+
+.hallucination-effect:hover {
+  .nft-image {
+    /* Start the shake animation and make the animation last for 0.5 seconds */
+    animation: shake 0.5s;
+
+    /* When the animation is finished, start again */
+    animation-iteration-count: infinite;
+  }
+
+  $offset: 5px;
+
+  background-size: cover;
+  background-position: center;
+
+  @supports (mix-blend-mode: multiply) {
+    position: relative;
+    overflow: auto;
+    background-color: white;
+    background-blend-mode: screen;
+
+    &:before,
+    &:after {
+      display: block;
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: inherit;
+      mix-blend-mode: multiply;
+      transform: scale(1.05);
+    }
+
+    &:before {
+      background-color: white;
+      background-blend-mode: screen;
+      transform-origin: top left;
+    }
+
+    &:after {
+      background-color: blue;
+      background-blend-mode: screen;
+      transform-origin: bottom right;
+    }
+  }
+}
+
+[class$='-effect'] img {
+  vertical-align: top !important;
+  margin: 0 !important;
+  opacity: 0 !important;
+}
+
+@keyframes shake {
+  0% {
+    transform: translate(1px, 1px) rotate(0deg);
+  }
+  10% {
+    transform: translate(-1px, -2px) rotate(-1deg);
+  }
+  20% {
+    transform: translate(-3px, 0px) rotate(1deg);
+  }
+  30% {
+    transform: translate(3px, 2px) rotate(0deg);
+  }
+  40% {
+    transform: translate(1px, -1px) rotate(1deg);
+  }
+  50% {
+    transform: translate(-1px, 2px) rotate(-1deg);
+  }
+  60% {
+    transform: translate(-3px, 1px) rotate(0deg);
+  }
+  70% {
+    transform: translate(3px, 1px) rotate(-1deg);
+  }
+  80% {
+    transform: translate(-1px, -1px) rotate(1deg);
+  }
+  90% {
+    transform: translate(1px, 2px) rotate(0deg);
+  }
+  100% {
+    transform: translate(1px, -2px) rotate(-1deg);
+  }
+}

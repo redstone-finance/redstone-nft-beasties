@@ -1,0 +1,54 @@
+@font-face {
+  font-family: 'SequentialistBB';
+  src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/306FA6_1_0.woff2')
+      format('woff2'),
+    url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/306FA6_0_0.woff')
+      format('woff');
+  font-style: normal;
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'SequentialistBB';
+  src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/306FA6_0_0.woff2')
+      format('woff2'),
+    url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/306FA6_0_0.woff')
+      format('woff');
+  font-style: italic;
+  font-weight: 400;
+}
+
+.bubble {
+  font-family: SequentialistBB, cursive;
+  font-size: 30px;
+
+  background-position: center;
+  background-repeat: no-repeat !important;
+  background-size: 100% 100%;
+  margin: 0 auto;
+  text-align: center;
+  height: 0;
+  box-sizing: content-box;
+  line-height: 1;
+  position: absolute;
+  right: 200px;
+  top: 20px;
+}
+.speech {
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/speech-bubble.svg);
+  width: 20%;
+  padding-top: 3%;
+  padding-bottom: 10%;
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+
+  .title {
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    -webkit-transform: scaleX(-1);
+    transform: scaleX(-1);
+  }
+}

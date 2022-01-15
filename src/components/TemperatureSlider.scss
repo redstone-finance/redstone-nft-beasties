@@ -1,0 +1,26 @@
+svg {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  z-index: 1000;
+}
+
+.label {
+  fill: #fffcf9;
+  font-size: 1.8em;
+  font-family: 'din-condensed-web', sans-serif;
+  /* font-family: "filson-soft", sans-serif; */
+  text-anchor: middle;
+  letter-spacing: 1.2px;
+}
+
+.tubeLabel {
+  fill: #fcefd6;
+  font-size: 1.4em;
+  font-family: 'din-condensed-web', sans-serif;
+  /* font-family: "filson-soft", sans-serif; */
+  text-anchor: middle;
+}
+.dragger {
+  -webkit-tap-highlight-color: transparent;
+}
