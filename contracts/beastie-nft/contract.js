@@ -7,7 +7,7 @@ export async function handle(state, action) {
 
 
     case "mintNFT": {
-      const { tokenId, name, deathTemperature, kidsTemperature, owner } 
+      const { tokenId, name, deathTemperature, kidsTemperature, owner, imageArweaveUrl } 
         = action.input.data;
 
       if (state.tokens[tokenId]) {
@@ -19,6 +19,8 @@ export async function handle(state, action) {
         deathTemperature,
         kidsTemperature,
         owner,
+        imageArweaveUrl,
+        imageArweaveUrlWithKids,
       };
 
       return { state };
@@ -55,7 +57,6 @@ export async function handle(state, action) {
           tokenDetails,
           isAlive: currentTemperature > tokenDetails.deathTemperature,
           hasKids: currentTemperature > tokenDetails.kidsTemperature,
-          imageBase64: '', // TODO <- add logic for image generation here
         };
         allTokens.push(token);
       }
