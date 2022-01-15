@@ -1,3 +1,5 @@
 {
-  "name": "Beastie NFT"
+  "name": "Beastie NFT",
+  "tokens": {},
+  "oracleContractAddress": "UPDATE_BEFORE_DEPLOYMENT"
 }
