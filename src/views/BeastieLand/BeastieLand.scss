@@ -48,6 +48,7 @@
 
     /* When the animation is finished, start again */
     animation-iteration-count: infinite;
+    overflow: hidden;
   }
 
   $offset: 5px;
@@ -57,7 +58,7 @@
 
   @supports (mix-blend-mode: multiply) {
     position: relative;
-    overflow: auto;
+    overflow: hidden;
     background-color: white;
     background-blend-mode: screen;
 

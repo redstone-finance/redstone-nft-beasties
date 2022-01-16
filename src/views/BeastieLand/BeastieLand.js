@@ -7,7 +7,6 @@ import { useState } from 'react';
 
 export const BeastieLand = () => {
   const [temp] = useState(localStorage.getItem('currentTemp') || 11);
-  console.log(temp);
   const images = {
     'fox-kids':
       'https://hv4gxzchk24cqfezebn3ujjz6oy2kbtztv5vghn6kpbkjc3vg4rq.arweave.net/lYueWF1Hqhued5npzoEAgkmNYiGh6D17V71L7Rt5YNU',
@@ -76,7 +75,7 @@ export const BeastieLand = () => {
     <>
       <Box
         bg='brand.dark'
-        minHeight='120vh'
+        minHeight='130vh'
         backgroundRepeat='no-repeat'
         style={{ backgroundImage: `url(${leaves})` }}
       >
@@ -121,6 +120,7 @@ export const BeastieLand = () => {
                 >
                   <Image
                     className='nft-image'
+                    overflowY='auto'
                     src={
                       temp <= t.deathTemperature
                         ? images['ghost']
