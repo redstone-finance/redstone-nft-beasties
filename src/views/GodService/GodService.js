@@ -53,7 +53,7 @@ export const GodService = () => {
         height='400px'
         overflowY='auto'
         position='absolute'
-        bottom='30px'
+        bottom='20px'
         left='50%'
         transform='translate(-50%, -30%)'
         className='temp-box'

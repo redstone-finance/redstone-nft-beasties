@@ -76,7 +76,7 @@ export const BeastieLand = () => {
     <>
       <Box
         bg='brand.dark'
-        minHeight='100vh'
+        minHeight='120vh'
         backgroundRepeat='no-repeat'
         style={{ backgroundImage: `url(${leaves})` }}
       >
