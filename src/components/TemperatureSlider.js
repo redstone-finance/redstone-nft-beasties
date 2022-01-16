@@ -4,6 +4,12 @@ import { TimelineMax } from 'gsap/TimelineMax';
 import { useEffect } from 'react';
 
 export const TemperatureSlider = ({ handleChange }) => {
+  const arweave = window.Arweave.init({
+    host: 'arweave.net',
+    port: 443,
+    protocol: 'https',
+  });
+
   let temp = 0;
   useEffect(() => {
     let select = function (s) {
@@ -17,6 +23,7 @@ export const TemperatureSlider = ({ handleChange }) => {
       follower = select('.follower'),
       dragger = select('.dragger'),
       dragTip = select('.dragTip'),
+      whole = select('.god-box'),
       minDragY = -380,
       liquidId = 0,
       step = Math.abs(minDragY / 100),
@@ -57,14 +64,35 @@ export const TemperatureSlider = ({ handleChange }) => {
       onThrowUpdate: onUpdate,
       overshootTolerance: 0,
     });
-    document.addEventListener('mouseup', function () {
+    whole.addEventListener('mouseup', async function () {
       let date = new Date();
-      handleChange({
-        date: date.toGMTString(),
-        temperature: temp,
-      });
-      localStorage.setItem('currentTemp', JSON.parse(temp));
+      console.log(temp != localStorage.getItem('currentTemp'));
+      if (temp != localStorage.getItem('currentTemp')) {
+        localStorage.setItem('currentTemp', JSON.parse(temp));
+        handleChange({
+          date: date.toGMTString(),
+          temperature: temp,
+        });
+        await window.arweaveWallet.connect([
+          'ACCESS_ADDRESS',
+          'ACCESS_ALL_ADDRESSES',
+          'SIGN_TRANSACTION',
+        ]);
+
+        const tx = await arweave.createTransaction(
+          {
+            data: JSON.stringify({
+              newTemperatureValue: temp,
+              contractAddres: 'x_ylfKSDlwynd5cEmAAsIwCNO4c3iY2mrKujb9xjnbk',
+            }),
+          },
+          'use_wallet'
+        );
+        await arweave.transactions.sign(tx, 'use_wallet');
+        await arweave.transactions.post(tx);
+      }
     });
+
     function onUpdate() {
       liquidId = Math.abs(Math.round(dragger._gsTransform.y / step));
       temp = liquidId;

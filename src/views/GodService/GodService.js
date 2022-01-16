@@ -21,7 +21,7 @@ export const GodService = () => {
   };
 
   return (
-    <Box h='110vh' bg='brand.darker'>
+    <Box h='110vh' bg='brand.darker' className='god-box'>
       <Box p='5'>
         <Link
           to='/'
@@ -45,26 +45,37 @@ export const GodService = () => {
         <Image src={hand} zIndex='1' />
       </Box>
       <Box
-        w='30%'
-        height='400px'
-        overflowX='scroll'
+        w='40%'
+        maxHeight='400px'
+        overflowY='auto'
         position='absolute'
         bottom='0'
         left='50%'
-        transform='translate(-50%, -50%)'
+        transform='translate(-50%, -30%)'
+        className='temp-box'
+        padding='6'
       >
-        <Table variant='striped' colorScheme='blue' overflow='scroll'>
+        <Table variant='striped' colorScheme='blue'>
           <Thead>
             <Tr>
-              <Th>Date</Th>
-              <Th isNumeric>Temperature</Th>
+              <Th color='brand.lighter' fontSize='20px' fontFamily='Pixie'>
+                Date
+              </Th>
+              <Th
+                color='brand.lighter'
+                isNumeric
+                fontSize='20px'
+                fontFamily='Pixie'
+              >
+                Temperature
+              </Th>
             </Tr>
           </Thead>
           <Tbody>
             {temperature.map((t) => (
               <Tr>
                 <Td>{t.date}</Td>
-                <Td isNumeric>{t.temperature}</Td>
+                <Td isNumeric>{t.temperature + '°'}</Td>
               </Tr>
             ))}
           </Tbody>

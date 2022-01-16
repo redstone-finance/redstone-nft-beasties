@@ -76,13 +76,13 @@
     }
 
     &:before {
-      background-color: white;
+      background-color: #ff66b3;
       background-blend-mode: screen;
       transform-origin: top left;
     }
 
     &:after {
-      background-color: blue;
+      background-color: #ff66b3;
       background-blend-mode: screen;
       transform-origin: bottom right;
     }
