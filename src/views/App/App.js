@@ -9,7 +9,6 @@ function App() {
   const [temp, setTemp] = useState(
     JSON.parse(localStorage.getItem('currentTemp')) || 11
   );
-  console.log(temp);
   const value = { temp, setTemp };
   return (
     <BrowserRouter>

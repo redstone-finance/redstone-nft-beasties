@@ -57,4 +57,10 @@
   border: 15px solid;
   border-image: url(https://nationaleventpros.com/wp-content/uploads/2014/03/xCotton-Candy-1600x1200.jpg.pagespeed.ic.RoyXGmWTKr.webp)
     1;
+
+  tbody {
+    tr:last-of-type {
+      border: none !important;
+    }
+  }
 }

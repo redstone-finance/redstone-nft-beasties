@@ -66,30 +66,33 @@ export const TemperatureSlider = ({ handleChange }) => {
     });
     whole.addEventListener('mouseup', async function () {
       let date = new Date();
-      console.log(temp != localStorage.getItem('currentTemp'));
       if (temp != localStorage.getItem('currentTemp')) {
         localStorage.setItem('currentTemp', JSON.parse(temp));
         handleChange({
           date: date.toGMTString(),
           temperature: temp,
         });
-        await window.arweaveWallet.connect([
-          'ACCESS_ADDRESS',
-          'ACCESS_ALL_ADDRESSES',
-          'SIGN_TRANSACTION',
-        ]);
+        if (window.arweaveWallet) {
+          await window.arweaveWallet.connect([
+            'ACCESS_ADDRESS',
+            'ACCESS_ALL_ADDRESSES',
+            'SIGN_TRANSACTION',
+          ]);
 
-        const tx = await arweave.createTransaction(
-          {
-            data: JSON.stringify({
-              newTemperatureValue: temp,
-              contractAddres: 'x_ylfKSDlwynd5cEmAAsIwCNO4c3iY2mrKujb9xjnbk',
-            }),
-          },
-          'use_wallet'
-        );
-        await arweave.transactions.sign(tx, 'use_wallet');
-        await arweave.transactions.post(tx);
+          const tx = await arweave.createTransaction(
+            {
+              data: JSON.stringify({
+                newTemperatureValue: temp,
+                contractAddres: 'x_ylfKSDlwynd5cEmAAsIwCNO4c3iY2mrKujb9xjnbk',
+              }),
+            },
+            'use_wallet'
+          );
+          await arweave.transactions.sign(tx, 'use_wallet');
+          await arweave.transactions.post(tx);
+        }
+      } else {
+        alert('ArConnect not installed');
       }
     });
 
@@ -159,10 +162,10 @@ export const TemperatureSlider = ({ handleChange }) => {
             y2='546'
             gradientUnits='userSpaceOnUse'
           >
-            <stop offset='0' stop-color='#FF0909' />
-            <stop offset='0.2' stop-color='#F3481A' />
-            <stop offset='0.5' stop-color='#FABA2C' />
-            <stop offset='1' stop-color='#00BCF2' />
+            <stop offset='0' stopColor='#FF0909' />
+            <stop offset='0.2' stopColor='#F3481A' />
+            <stop offset='0.5' stopColor='#FABA2C' />
+            <stop offset='1' stopColor='#00BCF2' />
           </linearGradient>
           <rect
             id='tube'
@@ -174,20 +177,20 @@ export const TemperatureSlider = ({ handleChange }) => {
             ry='43'
           />
           <clipPath id='liquidMask'>
-            <use xlinkHref='#tube' class='liquidMask' />
+            <use xlinkHref='#tube' className='liquidMask' />
           </clipPath>
           <clipPath id='tubeMask'>
-            <use xlinkHref='#tube' class='liquidMask' />
+            <use xlinkHref='#tube' className='liquidMask' />
           </clipPath>
           <path
             id='liquid'
             d='M757,552v490H357V552c50,0,50,20,100,20s50-20,100-20,50,20,100,20S707,552,757,552Z'
           />
           <mask id='gradMask'>
-            <use xlinkHref='#liquid' class='liquid' x='0' fill='#FCEFD6' />
+            <use xlinkHref='#liquid' className='liquid' x='0' fill='#FCEFD6' />
             <use
               xlinkHref='#liquid'
-              class='liquid'
+              className='liquid'
               x='0'
               fill='#EEE'
               opacity='0.7'
@@ -195,17 +198,22 @@ export const TemperatureSlider = ({ handleChange }) => {
           </mask>
         </defs>
 
-        <g class='whole' transform='translate(0, -40)'>
-          <use xlinkHref='#tube' class='tubeBg' fill='#C8D9D3' opacity='0.61' />
+        <g className='whole' transform='translate(0, -40)'>
+          <use
+            xlinkHref='#tube'
+            className='tubeBg'
+            fill='#C8D9D3'
+            opacity='0.61'
+          />
 
-          <g class='dragger' transform='translate(-6, 0)'>
+          <g className='dragger' transform='translate(-6, 0)'>
             <circle cx='294' cy='540' r='36' fill='#3A3335' />
             <path
-              class='dragTip'
+              className='dragTip'
               d='M315.5,556.76,299.24,540.5l16.26-16.26,36.26,16.26Z'
               fill='#3A3335'
             />
-            <text class='label' x='294' y='551'>
+            <text className='label' x='294' y='551'>
               100
             </text>
           </g>
@@ -214,26 +222,26 @@ export const TemperatureSlider = ({ handleChange }) => {
             <use xlinkHref='#tube' fill='url(#liquidGrad)' />
           </g>
           <line
-            class='tubeShine'
+            className='tubeShine'
             x1='371'
             y1='200'
             x2='371'
             y2='443'
             fill='none'
             stroke='#FFF'
-            stroke-linecap='round'
-            stroke-miterlimit='10'
-            stroke-width='8'
+            strokeLinecap='round'
+            strokeMiterlimit='10'
+            strokeWidth='8'
             opacity='0.21'
-            stroke-dasharray='153 30'
-            stroke-dashoffset='-20'
+            strokeDasharray='153 30'
+            strokeDashoffset='-20'
           />
           <g
-            class='measurements'
+            className='measurements'
             fill='none'
             stroke='#FCEFD6'
-            stroke-width='3'
-            stroke-linecap='round'
+            strokeWidth='3'
+            strokeLinecap='round'
             opacity='1'
           >
             <line x1='358' y1='196' x2='370' y2='196' />
@@ -248,14 +256,14 @@ export const TemperatureSlider = ({ handleChange }) => {
           </g>
 
           <circle
-            class='follower'
+            className='follower'
             cx='400'
             cy='540'
             r='0'
             fill='#62B6CB'
-            fill-opacity='1'
+            fillOpacity='1'
             stroke='#FCEFD6'
-            stroke-width='0'
+            strokeWidth='0'
           />
         </g>
       </svg>
