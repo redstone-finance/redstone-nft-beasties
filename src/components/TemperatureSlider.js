@@ -72,27 +72,23 @@ export const TemperatureSlider = ({ handleChange }) => {
           date: date.toGMTString(),
           temperature: temp,
         });
-        if (window.arweaveWallet) {
-          await window.arweaveWallet.connect([
-            'ACCESS_ADDRESS',
-            'ACCESS_ALL_ADDRESSES',
-            'SIGN_TRANSACTION',
-          ]);
+        await window.arweaveWallet.connect([
+          'ACCESS_ADDRESS',
+          'ACCESS_ALL_ADDRESSES',
+          'SIGN_TRANSACTION',
+        ]);
 
-          const tx = await arweave.createTransaction(
-            {
-              data: JSON.stringify({
-                newTemperatureValue: temp,
-                contractAddres: 'x_ylfKSDlwynd5cEmAAsIwCNO4c3iY2mrKujb9xjnbk',
-              }),
-            },
-            'use_wallet'
-          );
-          await arweave.transactions.sign(tx, 'use_wallet');
-          await arweave.transactions.post(tx);
-        }
-      } else {
-        alert('ArConnect not installed');
+        const tx = await arweave.createTransaction(
+          {
+            data: JSON.stringify({
+              newTemperatureValue: temp,
+              contractAddres: 'x_ylfKSDlwynd5cEmAAsIwCNO4c3iY2mrKujb9xjnbk',
+            }),
+          },
+          'use_wallet'
+        );
+        await arweave.transactions.sign(tx, 'use_wallet');
+        await arweave.transactions.post(tx);
       }
     });
 
